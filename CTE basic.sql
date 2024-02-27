@@ -1,0 +1,27 @@
+Create database SQLIP;
+USE SQLIP;
+---------******-RECURSIVE CTE(COMMON TABLE EXPRESSION)-******---------
+--Odd number CTE
+WITH  mycte AS
+(
+    SELECT 1 AS n
+    UNION ALL
+    SELECT n + 2
+    FROM mycte
+    WHERE n < 5
+)
+
+SELECT * FROM mycte;
+--Even number
+WITH EVENCTE AS
+(
+SELECT 2 AS EN
+UNION ALL
+SELECT EN+2 FROM EVENCTE WHERE EN<20
+)
+SELECT * FROM EVENCTE
+
+--OPTION (MAXRECURSION 0);
+
+
+
